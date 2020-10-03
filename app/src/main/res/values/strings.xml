@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Assignment2-Contacts</string>
     <string name="add_contact">Add new contact</string>
+    <string name="hint_name">First Last name...</string>
+    <string name="hint_phone_num">Phone number</string>
+    <string name="button_save">SAVE</string>
+    <string name="button_cancel">CANCEL</string>
+    <string name="empty_not_saved">Invalidate letters</string>
 </resources>

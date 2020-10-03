@@ -30,9 +30,9 @@ class ContactListAdapter internal constructor(
 
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
-        val current = contacts[position]
-        holder.contactNameItemView.text = current.name
-        holder.contactPhoneNumItemView.text = current.phoneNumber
+        val item = contacts[position]
+        holder.contactNameItemView.text = item.name
+        holder.contactPhoneNumItemView.text = item.phoneNumber
     }
 
     internal fun setContacts(contacts: List<Contact>) {
