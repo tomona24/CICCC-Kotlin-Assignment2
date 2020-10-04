@@ -25,12 +25,23 @@ class MakeContactViewModel (dataSource: ContactDatabaseDao): ViewModel() {
     }
 
     fun onSetNewContact() {
-     viewModelScope.launch{
-         val name = nameText
-         val phone = phoneText
-         val contact = Contact(name= name, phoneNumber = phone)
-            database.insert(contact)
-            _navigateToContactList.value = true
+        viewModelScope.launch {
+            if (validateName() && validatePhone()) {
+                val name = nameText
+                val phone = phoneText
+                val contact = Contact(name = name, phoneNumber = phone)
+                database.insert(contact)
+                _navigateToContactList.value = true
+            }
         }
     }
+
+    fun validateName (): Boolean {
+        return nameText.isNotEmpty() && nameText.split(" ").size == 2
+    }
+
+    fun validatePhone (): Boolean {
+        return phoneText.isNotEmpty() && phoneText.length == 10
+    }
+
 }
