@@ -19,11 +19,11 @@ class ContactListViewModel(application: Application,
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
-    private fun insert(contact: Contact) {
+    private suspend fun insert(contact: Contact) {
         database.insert(contact)
     }
 
-    private fun deleteAll() {
+    private suspend fun deleteAll() {
         database.deleteAll()
     }
 

@@ -23,6 +23,7 @@
             android:hint="@string/hint_name"
             android:inputType="textAutoComplete"
             android:minHeight="@dimen/min_height"
+            android:text="@={makeContactViewModel.nameText}"
             android:textSize="18sp"
             android:autofillHints="" />
 
@@ -35,6 +36,7 @@
             android:hint="@string/hint_phone_num"
             android:inputType="textAutoComplete|phone"
             android:minHeight="@dimen/min_height"
+            android:text="@={makeContactViewModel.phoneText}"
             android:textSize="18sp"
             android:autofillHints="" />
 

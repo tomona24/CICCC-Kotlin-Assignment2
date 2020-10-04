@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assignment2_contacts.R
 import com.example.assignment2_contacts.database.ContactDatabase
 import com.example.assignment2_contacts.databinding.FragmentContactListBinding
@@ -36,6 +37,8 @@ class ContactListFragment : Fragment() {
 
         binding.setLifecycleOwner(this)  // ここ
 
+        binding.recyclerview.layoutManager = LinearLayoutManager(application.applicationContext)
+
         val adapter = ContactListAdapter()
         binding.recyclerview.adapter = adapter
 
@@ -53,7 +56,7 @@ class ContactListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        view.findViewById<FloatingActionButton>(R.id.fab_fragment).setOnClickListener {
-//            findNavController().navigate(R.id.action_contactList_to_makeContact) }
+        view.findViewById<FloatingActionButton>(R.id.fab_fragment).setOnClickListener {
+            findNavController().navigate(R.id.action_contactList_to_makeContact) }
         }
     }

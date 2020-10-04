@@ -12,6 +12,9 @@ class MakeContactViewModel (dataSource: ContactDatabaseDao): ViewModel() {
 
     val database = dataSource
 
+    var nameText : String = ""
+    var phoneText : String = ""
+
     private val _navigateToContactList = MutableLiveData<Boolean?>()
     val navigateToContactList: LiveData<Boolean?>
         get() = _navigateToContactList
@@ -21,17 +24,15 @@ class MakeContactViewModel (dataSource: ContactDatabaseDao): ViewModel() {
         _navigateToContactList.value = null
     }
 
-//    fun onSetNewContact(name: String = "ためし", phoneNum: String ="試し") {
     fun onSetNewContact() {
-        val name = "ためし"
-        val phoneNum = "ためしNum"
-
-        viewModelScope.launch{
-            val contact = Contact(name = name, phoneNumber = phoneNum)
+     viewModelScope.launch{
+         val name = nameText
+         val phone = phoneText
+         println(name)
+         println(phone)
+         val contact = Contact(name= name, phoneNumber = phone)
             database.insert(contact)
-
             _navigateToContactList.value = true
         }
-
     }
 }
