@@ -3,6 +3,7 @@ package com.example.assignment2_contacts.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.assignment2_contacts.network.RandomUserProperty
 
 @Entity(tableName = "contact_table")
 data class Contact (
@@ -16,13 +17,3 @@ data class Contact (
 ) {
     var initial = name.substring(0,1)
 }
-
-
-//@ColumnInfo(name = "email")
-//var email: String = "",
-//
-//@ColumnInfo(name = "gender")
-//var gender: String = "",
-//
-//@ColumnInfo(name = "address")
-//var address: String = ""

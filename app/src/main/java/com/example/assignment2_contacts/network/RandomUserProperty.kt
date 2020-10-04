@@ -1,7 +1,9 @@
 package com.example.assignment2_contacts.network
 
+import com.example.assignment2_contacts.database.Contact
 
-data class Result (
+
+data class NetworkRandomUserContainer (
     val results: List<RandomUserProperty>
 )
 
@@ -30,3 +32,13 @@ data class Street(
     val number: String,
     val name: String
 )
+
+
+fun NetworkRandomUserContainer.asDatabaseModel(): List<Contact> {
+    return results.map {
+        Contact(
+            name = it.name.first + " " + it.name.last,
+            phoneNumber = it.phone
+        )
+    }
+}

@@ -2,7 +2,6 @@ package com.example.assignment2_contacts.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -20,7 +19,7 @@ private val retrofit = Retrofit.Builder()
 
 interface RandomUserApiService {
     @GET("api?results=5")
-    suspend fun getProperties(): Result
+    suspend fun getProperties(): NetworkRandomUserContainer
 }
 
 object RandomUserApi {

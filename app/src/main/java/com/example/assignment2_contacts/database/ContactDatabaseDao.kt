@@ -9,6 +9,9 @@ interface ContactDatabaseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(contact: Contact)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll( videos: List<Contact>)
+
     @Query("SELECT * from contact_table ORDER BY name ASC")
     fun getAllContacts(): LiveData<List<Contact>>
 
