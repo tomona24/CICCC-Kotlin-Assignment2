@@ -11,11 +11,8 @@ import com.example.assignment2_contacts.R
 import com.example.assignment2_contacts.database.Contact
 import kotlinx.android.synthetic.main.contact_item_view.view.*
 
-class ContactListAdapter internal constructor(
-    context: Context
-) : RecyclerView.Adapter<ContactListAdapter.ContactViewHolder>() {
+class ContactListAdapter internal constructor() : RecyclerView.Adapter<ContactListAdapter.ContactViewHolder>() {
 
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var contacts = emptyList<Contact>()
 
     inner class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -24,6 +21,7 @@ class ContactListAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
+        val inflater: LayoutInflater = LayoutInflater.from(parent.context)
         val itemView = inflater.inflate(R.layout.contact_item_view, parent, false)
         return ContactViewHolder(itemView)
     }

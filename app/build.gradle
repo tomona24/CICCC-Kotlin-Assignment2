@@ -26,6 +26,10 @@ android {
     packagingOptions {
         exclude 'META-INF/atomicfu.kotlin_module'
     }
+    // Enables data binding.
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -61,4 +65,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
 
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 }

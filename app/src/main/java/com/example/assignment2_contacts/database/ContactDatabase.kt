@@ -37,8 +37,8 @@ abstract class ContactDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: ContactDatabase? = null
 
-        fun getInstance(context: Context,
-        scope: CoroutineScope): ContactDatabase {
+        fun getInstance(context: Context
+       ): ContactDatabase {
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {
@@ -46,7 +46,7 @@ abstract class ContactDatabase : RoomDatabase() {
                         context.applicationContext,
                         ContactDatabase::class.java,
                         "contact_database"
-                    ).addCallback(ContactDatabaseCallback(scope)).build()
+                    ).build()
                     INSTANCE = instance
                 }
                 return instance
