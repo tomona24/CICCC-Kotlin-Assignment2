@@ -73,7 +73,7 @@ class ContactListViewModel(application: Application,
                 override fun onResponse(call: Call<Result>, response: Response<Result>) {
                     _response.value =  "Success: ${response.body()} Mars properties retrieved"
                     println("成功")
-                    println(response)
+                    println(response.body()?.results)
                 }
             })
 
