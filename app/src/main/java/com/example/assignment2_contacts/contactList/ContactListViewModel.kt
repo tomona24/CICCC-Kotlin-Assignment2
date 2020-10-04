@@ -4,16 +4,16 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.assignment2_contacts.database.Contact
 import com.example.assignment2_contacts.database.ContactDatabaseDao
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.assignment2_contacts.network.RandomUserApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ContactListViewModel(application: Application,
     dataSource: ContactDatabaseDao) : ViewModel() {
     val database = dataSource
-
     val allContacts =  database.getAllContacts()
 
     /**
@@ -46,5 +46,36 @@ class ContactListViewModel(application: Application,
     fun onContactDetailNavigated() {
         _navigateToContactDetail.value = null
     }
+
+
+    // network
+    // The internal MutableLiveData String that stores the most recent response
+    private val _response = MutableLiveData<String>()
+    val response: LiveData<String>
+        get() = _response
+
+    init {
+        getRandomUserProperties()
+    }
+
+    private fun getRandomUserProperties() {
+        RandomUserApi.retrofitService.getProperties().enqueue(
+            object: Callback<String> {
+                override fun onFailure(call: Call<String>, t: Throwable) {
+                    _response.value = "Failure: " + t.message
+                    println("失敗")
+                    println(t.message)
+
+                }
+
+                override fun onResponse(call: Call<String>, response: Response<String>) {
+                    _response.value = response.body()
+                    println("成功")
+                    println(response.body())
+                }
+            })
+
+    }
+
 
 }

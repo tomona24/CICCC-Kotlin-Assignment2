@@ -30,7 +30,6 @@ fun TextView.setContactPhoneNumberString(item: Contact?) {
 @BindingAdapter("setContactEmailString")
 fun TextView.setContactEmailString(item: Contact?) {
     item?.let {
-        println("example@example.com")
         text = "example@example.com"
 //        text = item.email
     }

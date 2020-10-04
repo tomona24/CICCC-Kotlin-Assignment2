@@ -28,8 +28,6 @@ class MakeContactViewModel (dataSource: ContactDatabaseDao): ViewModel() {
      viewModelScope.launch{
          val name = nameText
          val phone = phoneText
-         println(name)
-         println(phone)
          val contact = Contact(name= name, phoneNumber = phone)
             database.insert(contact)
             _navigateToContactList.value = true

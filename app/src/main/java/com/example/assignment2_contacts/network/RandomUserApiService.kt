@@ -5,7 +5,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
-
 private const val BASE_URL = "https://randomuser.me/"
 
 private val retrofit = Retrofit.Builder()
@@ -13,14 +12,13 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface RUGApiService {
+interface RandomUserApiService {
     @GET("api")
     fun getProperties():
             Call<String>
 }
 
-object RUGApi {
-    val retrofitService : RUGApiService by lazy {
-        retrofit.create(RUGApiService::class.java)
-    }
+object RandomUserApi {
+    val retrofitService : RandomUserApiService by lazy {
+        retrofit.create(RandomUserApiService::class.java) }
 }

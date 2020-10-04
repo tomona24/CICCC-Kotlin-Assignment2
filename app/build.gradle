@@ -8,11 +8,10 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.example.android.trackmysleepqualityrecyclerview"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -68,11 +67,8 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "android.arch.navigation:navigation-ui-ktx:$navigationVersion"
 
-    // networking
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
 
-    //json to java
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 }
 

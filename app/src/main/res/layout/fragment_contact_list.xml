@@ -24,8 +24,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_fragment"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:contentDescription="@string/add_contact"
-            android:src="@drawable/ic_add"/>
+            app:srcCompat="@drawable/ic_add"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
