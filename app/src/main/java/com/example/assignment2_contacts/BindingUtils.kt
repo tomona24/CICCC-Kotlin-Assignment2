@@ -1,4 +1,4 @@
-package com.example.assignment2_contacts.contactList
+package com.example.assignment2_contacts
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter

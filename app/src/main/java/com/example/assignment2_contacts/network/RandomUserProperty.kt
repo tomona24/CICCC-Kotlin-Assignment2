@@ -13,7 +13,6 @@ data class RandomUserProperty(
     val gender: String
 )
 
-
 data class UserName (
     val title: String,
     val first: String,

@@ -8,22 +8,21 @@ import androidx.room.PrimaryKey
 data class Contact (
     @PrimaryKey
     @ColumnInfo(name = "name")
-    var name: String,
+    var name: String = "",
 
     @ColumnInfo(name = "phone_number")
-    var phoneNumber: String
+    var phoneNumber: String = ""
 
 ) {
     var initial = name.substring(0,1)
 }
 
 
-
 //@ColumnInfo(name = "email")
-//var email: String = "example@com",
+//var email: String = "",
 //
 //@ColumnInfo(name = "gender")
-//var gender: String = "female",
+//var gender: String = "",
 //
 //@ColumnInfo(name = "address")
-//var address: String = "xxx xxxx xxxxxxxxxx"
+//var address: String = ""

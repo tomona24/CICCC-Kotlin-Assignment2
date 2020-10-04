@@ -71,11 +71,11 @@ class ContactListener(val clickListener: (contactId: String) -> Unit) {
 
 class ContactDiffCallback : DiffUtil.ItemCallback<DataItem>() {
     override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
-        return oldItem.name == newItem.name
+        return oldItem === newItem
     }
     @SuppressLint("DiffUtilEquals")
     override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
-        return oldItem == newItem
+        return oldItem.name == newItem.name
     }
 }
 
