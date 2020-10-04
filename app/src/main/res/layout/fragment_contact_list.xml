@@ -17,8 +17,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             tools:listitem="@layout/contact_item_view"
             android:padding="@dimen/big_padding"
             app:layout_constraintBottom_toBottomOf="parent"

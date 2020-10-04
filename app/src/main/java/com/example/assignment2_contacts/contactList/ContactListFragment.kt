@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.assignment2_contacts.R
@@ -15,13 +16,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ContactListFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
 
         val binding: FragmentContactListBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_contact_list, container, false)
+
         val application = requireNotNull(this.activity).application
 
         // Create an instance of the ViewModel Factory.
@@ -34,6 +34,7 @@ class ContactListFragment : Fragment() {
 
         binding.contactListViewModel = contactListViewModel
 
+        binding.setLifecycleOwner(this)  // ここ
 
         val adapter = ContactListAdapter()
         binding.recyclerview.adapter = adapter
@@ -42,11 +43,8 @@ class ContactListFragment : Fragment() {
             it?.let {
                 adapter.setContacts(it)
             }
+
         })
-
-        binding.setLifecycleOwner(this)  // ここ
-
-
 
         // Inflate the layout for this fragment
         return binding.root
@@ -55,7 +53,7 @@ class ContactListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<FloatingActionButton>(R.id.fab_fragment).setOnClickListener {
-            findNavController().navigate(R.id.action_contactList_to_makeContact) }
+//        view.findViewById<FloatingActionButton>(R.id.fab_fragment).setOnClickListener {
+//            findNavController().navigate(R.id.action_contactList_to_makeContact) }
         }
     }

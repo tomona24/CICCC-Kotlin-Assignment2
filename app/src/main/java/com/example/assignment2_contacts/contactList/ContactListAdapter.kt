@@ -14,11 +14,7 @@ import java.util.Date.from
 
 class ContactListAdapter internal constructor() : RecyclerView.Adapter<ContactListAdapter.ContactViewHolder>() {
 
-    private var contacts = emptyList<Contact>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+    private var contacts = listOf<Contact>()
 
     override fun getItemCount(): Int = contacts.size
 
@@ -41,7 +37,7 @@ class ContactListAdapter internal constructor() : RecyclerView.Adapter<ContactLi
 
         fun bind(item: Contact) {
             val res = itemView.context.resources
-            contactPhoneNumItemView.text = item.name
+            contactNameItemView.text = item.name
             contactPhoneNumItemView.text = item.phoneNumber
         }
 
