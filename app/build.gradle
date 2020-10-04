@@ -67,8 +67,12 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "android.arch.navigation:navigation-ui-ktx:$navigationVersion"
 
-    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
-    implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
+    // network
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+
+//    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+//    implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
 }
 

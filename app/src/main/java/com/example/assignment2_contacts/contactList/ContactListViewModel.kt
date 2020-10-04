@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 import com.example.assignment2_contacts.database.Contact
 import com.example.assignment2_contacts.database.ContactDatabaseDao
 import com.example.assignment2_contacts.network.RandomUserApi
+import com.example.assignment2_contacts.network.RandomUserProperty
+import com.example.assignment2_contacts.network.Result
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,18 +62,18 @@ class ContactListViewModel(application: Application,
 
     private fun getRandomUserProperties() {
         RandomUserApi.retrofitService.getProperties().enqueue(
-            object: Callback<String> {
-                override fun onFailure(call: Call<String>, t: Throwable) {
+            object: Callback<Result> {
+                override fun onFailure(call: Call<Result>, t: Throwable) {
                     _response.value = "Failure: " + t.message
                     println("失敗")
                     println(t.message)
 
                 }
 
-                override fun onResponse(call: Call<String>, response: Response<String>) {
-                    _response.value = response.body()
+                override fun onResponse(call: Call<Result>, response: Response<Result>) {
+                    _response.value =  "Success: ${response.body()} Mars properties retrieved"
                     println("成功")
-                    println(response.body())
+                    println(response)
                 }
             })
 
