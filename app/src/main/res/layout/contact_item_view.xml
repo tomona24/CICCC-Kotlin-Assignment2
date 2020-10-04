@@ -3,10 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
+    <data>
+        <variable
+            name="contact"
+            type="com.example.assignment2_contacts.database.Contact"/>
+        <variable
+            name="clickListener"
+            type="com.example.assignment2_contacts.contactList.ContactListener" />
+    </data>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(contact)}">
         <TextView
             android:id="@+id/name_text_view"
             style="@style/name_title"

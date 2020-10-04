@@ -13,6 +13,11 @@
         <action
             android:id="@+id/action_contactList_to_makeContact"
             app:destination="@id/make_contact_fragment" />
+        <action
+            android:id="@+id/action_contactList_to_contactDetail"
+            app:destination="@id/contact_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/make_contact_fragment"
@@ -22,5 +27,16 @@
         <action
             android:id="@+id/action_makeContact_to_contactList"
             app:destination="@id/contact_list_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/contact_detail_fragment"
+        android:name="com.example.assignment2_contacts.contactDetail.ContactDetailFragment"
+        android:label="fragment_contact_detail"
+        tools:layout="@layout/fragment_contact_detail">
+
+        <argument
+            android:name="contactNameKey"
+            app:argType="string" />
     </fragment>
 </navigation>

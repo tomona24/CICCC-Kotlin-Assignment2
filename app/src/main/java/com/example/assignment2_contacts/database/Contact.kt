@@ -12,4 +12,6 @@ data class Contact (
 
     @ColumnInfo(name = "phone_number")
     var phoneNumber: String
-)
+) {
+    var initial = name.substring(0,1)
+}

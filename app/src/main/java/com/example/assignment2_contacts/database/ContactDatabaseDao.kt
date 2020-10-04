@@ -15,4 +15,6 @@ interface ContactDatabaseDao {
     @Query("DELETE FROM contact_table")
     suspend fun deleteAll()
 
+    @Query("SELECT * from contact_table WHERE name = :key")
+    fun getContactWithId(key: String): LiveData<Contact>
 }

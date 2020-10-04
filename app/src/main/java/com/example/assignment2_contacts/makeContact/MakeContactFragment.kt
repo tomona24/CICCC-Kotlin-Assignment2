@@ -56,9 +56,5 @@ class MakeContactFragment : Fragment() {
         view.findViewById<Button>(R.id.button_cancel).setOnClickListener {
             findNavController().navigate(R.id.action_makeContact_to_contactList)
         }
-
-//        view.findViewById<Button>(R.id.button_save).setOnClickListener {
-//            findNavController().navigate(R.id.action_makeContact_to_contactList)
-//        }
     }
 }
