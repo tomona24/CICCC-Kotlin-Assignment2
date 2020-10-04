@@ -35,9 +35,7 @@ class ContactDetailFragment : Fragment() {
         // To use the View Model with data binding, you have to explicitly
         // give the binding object a reference to it.
         binding.contactDetailViewModel = contactDetailViewModel
-
         binding.setLifecycleOwner(this)
-
 
         return binding.root
     }

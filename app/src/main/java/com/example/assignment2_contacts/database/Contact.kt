@@ -12,6 +12,18 @@ data class Contact (
 
     @ColumnInfo(name = "phone_number")
     var phoneNumber: String
+
 ) {
     var initial = name.substring(0,1)
 }
+
+
+
+//@ColumnInfo(name = "email")
+//var email: String = "example@com",
+//
+//@ColumnInfo(name = "gender")
+//var gender: String = "female",
+//
+//@ColumnInfo(name = "address")
+//var address: String = "xxx xxxx xxxxxxxxxx"

@@ -20,14 +20,14 @@ abstract class ContactDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    var contactDao = database.contactDatabaseDao
-
-                    var contact = Contact( name = "Tomona Sako", phoneNumber = "080-1809-3802")
-                    contactDao.insert(contact)
-                    contact =  Contact( name = "Tomona Sako2", phoneNumber = "080-1809-3802")
-                    contactDao.insert(contact)
-                    contact = Contact( name = "Tomona Sako3", phoneNumber = "080-1809-3802")
-                    contactDao.insert(contact)
+//                    var contactDao = database.contactDatabaseDao
+//
+//                    var contact = Contact( name = "Tomona Sako", phoneNumber = "080-1809-3802")
+//                    contactDao.insert(contact)
+//                    contact =  Contact( name = "Tomona Sako2", phoneNumber = "080-1809-3802")
+//                    contactDao.insert(contact)
+//                    contact = Contact( name = "Tomona Sako3", phoneNumber = "080-1809-3802")
+//                    contactDao.insert(contact)
                 }
             }
         }

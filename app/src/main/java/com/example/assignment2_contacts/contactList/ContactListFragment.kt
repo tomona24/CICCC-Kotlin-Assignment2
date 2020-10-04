@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assignment2_contacts.R
+import com.example.assignment2_contacts.contactDetail.ContactDetailFragment
+import com.example.assignment2_contacts.database.Contact
 import com.example.assignment2_contacts.database.ContactDatabase
 import com.example.assignment2_contacts.databinding.FragmentContactListBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -35,14 +38,25 @@ class ContactListFragment : Fragment() {
 
         binding.contactListViewModel = contactListViewModel
 
-        binding.setLifecycleOwner(this)  // ここ
+        val adapter = ContactListAdapter(ContactListener{ name ->
+            Toast.makeText(context, "${name}", Toast.LENGTH_LONG).show()
+            contactListViewModel.onContactClicked(name)
+        })
+
+
+        contactListViewModel.navigateToContactDetail.observe(this, Observer { contact ->
+            contact?.let {
+                this.findNavController().navigate(
+                    ContactListFragmentDirections.actionContactListToContactDetail(contact)
+                )
+                contactListViewModel.onContactDetailNavigated()
+            }
+        })
 
         binding.recyclerview.layoutManager = LinearLayoutManager(application.applicationContext)
-
-        val adapter = ContactListAdapter()
         binding.recyclerview.adapter = adapter
 
-        contactListViewModel.allContacts.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+        contactListViewModel.allContacts.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.setContacts(it)
             }

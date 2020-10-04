@@ -16,12 +16,11 @@ class ContactDetailViewModel (
         val database = dataSource
 
         private val contact: LiveData<Contact>
-
         fun getContact() = contact
 
 
         init {
-            contact=database.getContactWithId(contactNameKey)
+            contact = database.getContactWithId(contactNameKey)
         }
 
 

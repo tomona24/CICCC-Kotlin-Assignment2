@@ -34,4 +34,17 @@ class ContactListViewModel(application: Application,
     val navigateToMakeContact: LiveData<Contact>
         get() = _navigateToMakeContact
 
+
+    private val _navigateToContactDetail = MutableLiveData<String>()
+    val navigateToContactDetail: LiveData<String>
+        get() = _navigateToContactDetail
+
+    fun onContactClicked(nameKey: String) {
+        _navigateToContactDetail.value = nameKey
+    }
+
+    fun onContactDetailNavigated() {
+        _navigateToContactDetail.value = null
+    }
+
 }
