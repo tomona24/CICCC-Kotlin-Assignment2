@@ -24,8 +24,6 @@ class ContactListFragment : Fragment() {
             inflater, R.layout.fragment_contact_list, container, false)
         val application = requireNotNull(this.activity).application
 
-        val adapter = ContactListAdapter()
-
         // Create an instance of the ViewModel Factory.
         val dataSource = ContactDatabase.getInstance(application).contactDatabaseDao
         val viewModelFactory = ContactListViewModelFactory(dataSource, application)
@@ -35,11 +33,10 @@ class ContactListFragment : Fragment() {
                 this, viewModelFactory).get(ContactListViewModel::class.java)
 
         binding.contactListViewModel = contactListViewModel
-//        binding.setLifecycleOwner(this)
 
 
+        val adapter = ContactListAdapter()
         binding.recyclerview.adapter = adapter
-//        binding.contactList.adapter = adapter
 
         contactListViewModel.allContacts.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it?.let {
@@ -47,18 +44,18 @@ class ContactListFragment : Fragment() {
             }
         })
 
+        binding.setLifecycleOwner(this)  // ここ
+
+
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact_list, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<FloatingActionButton>(R.id.fab_fragment).setOnClickListener {
-            findNavController().navigate(R.id.action_contactList_to_makeContact)
-
-            }
-
+            findNavController().navigate(R.id.action_contactList_to_makeContact) }
         }
     }

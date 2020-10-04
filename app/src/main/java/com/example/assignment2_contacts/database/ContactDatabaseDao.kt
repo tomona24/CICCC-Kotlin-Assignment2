@@ -7,12 +7,12 @@ import androidx.room.*
 interface ContactDatabaseDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(contact: Contact)
+    fun insert(contact: Contact)
 
     @Query("SELECT * from contact_table ORDER BY name ASC")
     fun getAllContacts(): LiveData<List<Contact>>
 
     @Query("DELETE FROM contact_table")
-    suspend fun deleteAll()
+    fun deleteAll()
 
 }
