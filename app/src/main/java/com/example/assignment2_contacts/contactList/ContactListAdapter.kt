@@ -14,7 +14,6 @@ import com.example.assignment2_contacts.databinding.ContactItemViewBinding
 
 class ContactListAdapter internal constructor(val clickListener: ContactListener) :
     ListAdapter<DataItem, RecyclerView.ViewHolder>(ContactDiffCallback()) {
-//    RecyclerView.Adapter<ContactListAdapter.ContactViewHolder>() {
     private var contacts = listOf<Contact>()
 
     override fun getItemCount(): Int = contacts.size
@@ -22,8 +21,6 @@ class ContactListAdapter internal constructor(val clickListener: ContactListener
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder) {
             is ContactViewHolder -> {
-//                val item = getItem(position)!! as DataItem.ContactItem
-//                holder.bind(item.contact, clickListener)
                 val item = contacts[position]
                 holder.bind(item, clickListener)
             }
@@ -39,7 +36,7 @@ class ContactListAdapter internal constructor(val clickListener: ContactListener
     class ContactViewHolder private constructor(val binding: ContactItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
             item: Contact,
-            clickListener: ContactListener
+            clickListener: ContactListener? = null
         ) {
             binding.contact = item
             binding.nameTextView.text = item.name

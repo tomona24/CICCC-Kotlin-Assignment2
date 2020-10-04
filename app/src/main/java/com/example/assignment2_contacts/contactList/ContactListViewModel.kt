@@ -24,7 +24,6 @@ class ContactListViewModel(application: Application,
     private val contactRepository = ContactRepository(ContactDatabase.getInstance(application))
 
     val database = dataSource
-//    val allContacts =  database.getAllContacts()
     val allContacts = contactRepository.contacts
 
 
@@ -35,7 +34,7 @@ class ContactListViewModel(application: Application,
         database.insert(contact)
     }
 
-    private suspend fun deleteAll() {
+    suspend fun deleteAll() {
         database.deleteAll()
     }
 

@@ -39,7 +39,6 @@ class ContactListFragment : Fragment() {
         binding.contactListViewModel = contactListViewModel
 
         val adapter = ContactListAdapter(ContactListener{ name ->
-            Toast.makeText(context, "${name}", Toast.LENGTH_LONG).show()
             contactListViewModel.onContactClicked(name)
         })
 
