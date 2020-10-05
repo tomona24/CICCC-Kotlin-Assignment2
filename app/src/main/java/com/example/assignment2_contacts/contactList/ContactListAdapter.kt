@@ -103,9 +103,14 @@ class ContactListAdapter internal constructor(val clickListener: ContactListener
         var currentInitial = 64
         for (item in contacts) {
             if (currentInitial.toChar().toString()  != item.initial) {
-                while (currentInitial  < item.initial.single().toInt()) {
+                while (currentInitial  < item.initial.single().toInt() && currentInitial < 91) {
                     currentInitial += 1
-                    val section = Contact(name = currentInitial.toChar().toString())
+                    var section: Contact
+                    if (currentInitial == 91) {
+                        section = Contact(name = "#")
+                    } else {
+                        section = Contact(name = currentInitial.toChar().toString())
+                    }
                     contactsForRecyclerView.add(section)
 
                 }
