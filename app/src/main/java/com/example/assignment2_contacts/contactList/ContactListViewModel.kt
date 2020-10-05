@@ -87,7 +87,6 @@ class ContactListViewModel(application: Application,
 
     init {
         refreshDataFromRepository()
-//        getRandomUserProperties()
     }
 
     private fun getRandomUserProperties() {
@@ -95,12 +94,8 @@ class ContactListViewModel(application: Application,
             try {
                 val results = RandomUserApi.retrofitService.getProperties()
                 _properties.value = results
-                println("成功")
             } catch (e: Exception) {
                 _response.value = "Failure: ${e.message}"
-                println("失敗")
-                println(e.message)
-
             }
         }
     }

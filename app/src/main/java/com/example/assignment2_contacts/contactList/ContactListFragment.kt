@@ -57,9 +57,8 @@ class ContactListFragment : Fragment() {
 
         contactListViewModel.allContacts.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adapter.setContacts(it)
+                adapter.setContacts(it)  // ここ
             }
-
         })
 
         // Inflate the layout for this fragment
